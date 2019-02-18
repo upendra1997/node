@@ -1,0 +1,11 @@
+<p id="data"></p>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io('http://localhost');
+    console.log("script exec");
+    socket.on('data', function(data){
+        // console.log("message Recieved from server "+data);
+        document.getElementById('data').textContent = data;
+        socket.emit('data',""+data);
+    });
+</script>
